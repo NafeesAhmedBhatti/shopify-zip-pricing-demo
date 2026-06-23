@@ -5,6 +5,11 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.send("Shopify ZIP Pricing API is running");
+});
+
+app.post("/get-price", (req, res) => {
 
 app.post("/get-price", (req, res) => {
   const { zipCode } = req.body;
