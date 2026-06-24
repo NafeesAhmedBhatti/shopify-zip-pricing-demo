@@ -1,32 +1,72 @@
-# Shopify ZIP Code Pricing Demo
+# Shopify ZIP Pricing Demo
 
-A simple Shopify ZIP Code–Based Product Pricing Demo built with Shopify and Node.js (Express). Customers can enter a destination ZIP code and receive dynamic pricing estimates directly from the product page.
+A Shopify demo project that provides dynamic product pricing based on the customer's ZIP code.
+
+## 🚀 Features
+
+- Dynamic ZIP code-based pricing
+- Shopify product page integration
+- Node.js + Express backend
+- Shopify App Proxy architecture
+- Valid and invalid ZIP code handling
+- Render deployment
+- GitHub version control
 
 ---
 
-## Features
+## 🏗 Architecture
 
-- ZIP code input field near the product price
-- Dynamic pricing using a backend API
-- Hardcoded pricing rules for demo purposes
-- Invalid ZIP code handling
-- Real-time price updates
-- Shopify storefront integration
+```text
+Product Page
+      ↓
+Shopify App Proxy
+      ↓
+Node.js Backend API
+      ↓
+ZIP-based Pricing Response
+```
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
-- Shopify
-- Node.js
-- Express.js
+### Frontend
+- Shopify Theme (Liquid)
+- HTML
 - JavaScript
 
+### Backend
+- Node.js
+- Express.js
+- CORS
+
+### Deployment
+- Render
+
+### Version Control
+- GitHub
+
 ---
 
-## API Endpoint
+## 📌 ZIP Pricing Rules
 
-### POST `/get-price`
+| ZIP Code | Price |
+|-----------|--------|
+| 75028 | $1499 |
+| 10001 | $1699 |
+| 90210 | $1799 |
+
+Invalid ZIP codes return:
+
+```text
+No pricing available for this ZIP code
+```
+
+---
+
+## 🔌 API Endpoint
+
+### POST /get-price
 
 ### Request
 
@@ -36,7 +76,7 @@ A simple Shopify ZIP Code–Based Product Pricing Demo built with Shopify and No
 }
 ```
 
-### Response
+### Success Response
 
 ```json
 {
@@ -45,48 +85,54 @@ A simple Shopify ZIP Code–Based Product Pricing Demo built with Shopify and No
 }
 ```
 
----
+### Invalid ZIP Response
 
-## Test ZIP Codes
-
-| ZIP Code | Price |
-|----------|--------|
-| 75028 | $1499 |
-| 10001 | $1699 |
-| 90210 | $1799 |
-
-Any other ZIP code returns:
-
-```text
-No pricing available for this ZIP code
+```json
+{
+  "success": false,
+  "message": "No pricing available for this ZIP code"
+}
 ```
 
 ---
 
-## Project Structure
+## 🔒 App Proxy Flow
+
+Instead of exposing the backend directly, requests are routed through Shopify App Proxy.
 
 ```text
-shopify-zip-pricing-demo
-│
-├── backend
-│   ├── server.js
-│   ├── package.json
-│   ├── package-lock.json
-│   └── .gitignore
-│
-├── screenshots
-│   ├── home-page.PNG
-│   ├── product-page.PNG
-│   ├── valid-zip-price.PNG
-│   ├── invalid-zip-price.PNG
-│   └── backend-server.PNG
-│
-└── README.md
+Product Page
+↓
+/apps/zip-pricing/get-price
+↓
+Shopify App Proxy
+↓
+Render Backend API
+↓
+Pricing Response
+```
+
+This architecture provides a more production-oriented and secure implementation.
+
+---
+
+## 🌐 Deployment
+
+### Backend URL
+
+```text
+https://shopify-zip-pricing-demo-4apv.onrender.com
+```
+
+### Store URL
+
+```text
+https://zip-pricing-demo-tqoemsuw.myshopify.com
 ```
 
 ---
 
-## Screenshots
+## 📷 Screenshots
 
 ### Home Page
 
@@ -96,11 +142,11 @@ shopify-zip-pricing-demo
 
 ![Product Page](screenshots/product-page.PNG)
 
-### Valid ZIP Code Result
+### Valid ZIP Price
 
 ![Valid ZIP](screenshots/valid-zip-price.PNG)
 
-### Invalid ZIP Code Result
+### Invalid ZIP Price
 
 ![Invalid ZIP](screenshots/invalid-zip-price.PNG)
 
@@ -110,37 +156,67 @@ shopify-zip-pricing-demo
 
 ---
 
-## Installation
+## 🎥 Demo Video
 
-### Clone Repository
+Loom Recording:
 
-```bash
-git clone https://github.com/NafeesAhmedBhatti/shopify-zip-pricing-demo.git
-```
-
-### Install Dependencies
-
-```bash
-cd backend
-npm install
-```
-
-### Run Server
-
-```bash
-npm start
-```
-
-Server runs on:
-
-```text
-http://localhost:3000
-```
+https://www.loom.com/share/7f722735233344dc8eaf1907019ccd23
 
 ---
 
-## Author
+## 👨‍💻 Author
 
-### Nafees Ahmed Bhatti
+**Nafees Ahmed Bhatti**
 
-GitHub: https://github.com/NafeesAhmedBhatti
+GitHub:  
+https://github.com/NafeesAhmedBhatti
+
+---
+
+## ✅ Reviewer Feedback Improvement
+
+### Initial Architecture
+
+```text
+Product Page
+↓
+Direct Backend API
+```
+
+### Updated Architecture
+
+```text
+Product Page
+↓
+Shopify App Proxy
+↓
+Backend Pricing API
+```
+
+The initial implementation exposed the backend API directly. Based on reviewer feedback, the architecture was improved by introducing Shopify App Proxy between the product page and backend API.
+
+This approach reduces direct API exposure and provides a cleaner and more production-oriented architecture.
+
+---
+
+## 📂 Project Structure
+
+```text
+Shopify_pricing/
+│
+├── backend/
+│   ├── node_modules/
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── server.js
+│   └── .gitignore
+│
+├── screenshots/
+│   ├── home-page.PNG
+│   ├── product-page.PNG
+│   ├── valid-zip-price.PNG
+│   ├── invalid-zip-price.PNG
+│   └── backend-server.PNG
+│
+└── README.md
+```
