@@ -46,7 +46,27 @@ ZIP-based Pricing Response
 - GitHub
 
 ---
+## Screenshots
 
+### Home Page
+
+![Home Page](screenshots/home-page.PNG)
+
+### Product Page
+
+![Product Page](screenshots/product-page.PNG)
+
+### Valid ZIP Price
+
+![Valid ZIP Price](screenshots/valid-zip-price.PNG)
+
+### Invalid ZIP Price
+
+![Invalid ZIP Price](screenshots/invalid-zip-price.PNG)
+
+### Backend Server
+
+![Backend Server](screenshots/backend-server.PNG)
 ## ZIP Pricing Rules
 
 | ZIP Code | Price |
