@@ -1,8 +1,8 @@
 # Shopify ZIP Pricing Demo
 
-A Shopify demo project that provides dynamic product pricing based on the customer's ZIP code.
+A Shopify demo project that provides dynamic product pricing based on customer ZIP codes using a Node.js backend and Shopify App Proxy.
 
-## 🚀 Features
+## Features
 
 - Dynamic ZIP code-based pricing
 - Shopify product page integration
@@ -14,7 +14,7 @@ A Shopify demo project that provides dynamic product pricing based on the custom
 
 ---
 
-## 🏗 Architecture
+## Architecture
 
 ```text
 Product Page
@@ -28,7 +28,7 @@ ZIP-based Pricing Response
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
 - Shopify Theme (Liquid)
@@ -38,7 +38,6 @@ ZIP-based Pricing Response
 ### Backend
 - Node.js
 - Express.js
-- CORS
 
 ### Deployment
 - Render
@@ -48,7 +47,7 @@ ZIP-based Pricing Response
 
 ---
 
-## 📌 ZIP Pricing Rules
+## ZIP Pricing Rules
 
 | ZIP Code | Price |
 |-----------|--------|
@@ -64,11 +63,11 @@ No pricing available for this ZIP code
 
 ---
 
-## 🔌 API Endpoint
+## API Endpoint
 
 ### POST /get-price
 
-### Request
+#### Request
 
 ```json
 {
@@ -76,7 +75,7 @@ No pricing available for this ZIP code
 }
 ```
 
-### Success Response
+#### Response
 
 ```json
 {
@@ -85,7 +84,7 @@ No pricing available for this ZIP code
 }
 ```
 
-### Invalid ZIP Response
+#### Invalid ZIP Response
 
 ```json
 {
@@ -96,9 +95,7 @@ No pricing available for this ZIP code
 
 ---
 
-## 🔒 App Proxy Flow
-
-Instead of exposing the backend directly, requests are routed through Shopify App Proxy.
+## App Proxy Flow
 
 ```text
 Product Page
@@ -107,16 +104,14 @@ Product Page
 ↓
 Shopify App Proxy
 ↓
-Render Backend API
+Node.js Backend API
 ↓
 Pricing Response
 ```
 
-This architecture provides a more production-oriented and secure implementation.
-
 ---
 
-## 🌐 Deployment
+## Deployment
 
 ### Backend URL
 
@@ -132,80 +127,22 @@ https://zip-pricing-demo-tqoemsuw.myshopify.com
 
 ---
 
-## 📷 Screenshots
+## Screenshots
 
-### Home Page
-
-![Home Page](screenshots/home-page.PNG)
-
-### Product Page
-
-![Product Page](screenshots/product-page.PNG)
-
-### Valid ZIP Price
-
-![Valid ZIP](screenshots/valid-zip-price.PNG)
-
-### Invalid ZIP Price
-
-![Invalid ZIP](screenshots/invalid-zip-price.PNG)
-
-### Backend Server
-
-![Backend Server](screenshots/backend-server.PNG)
+- Home Page
+- Product Page
+- Valid ZIP Price
+- Invalid ZIP Price
+- Backend Server
 
 ---
 
-## 🎥 Demo Video
-
-Loom Recording:
-
-https://www.loom.com/share/7f722735233344dc8eaf1907019ccd23
-
----
-
-## 👨‍💻 Author
-
-**Nafees Ahmed Bhatti**
-
-GitHub:  
-https://github.com/NafeesAhmedBhatti
-
----
-
-## ✅ Reviewer Feedback Improvement
-
-### Initial Architecture
-
-```text
-Product Page
-↓
-Direct Backend API
-```
-
-### Updated Architecture
-
-```text
-Product Page
-↓
-Shopify App Proxy
-↓
-Backend Pricing API
-```
-
-The initial implementation exposed the backend API directly. Based on reviewer feedback, the architecture was improved by introducing Shopify App Proxy between the product page and backend API.
-
-This approach reduces direct API exposure and provides a cleaner and more production-oriented architecture.
-
----
-
-## 📂 Project Structure
+## Project Structure
 
 ```text
 Shopify_pricing/
 │
 ├── backend/
-│   ├── node_modules/
 │   ├── package.json
 │   ├── package-lock.json
 │   ├── server.js
@@ -220,3 +157,11 @@ Shopify_pricing/
 │
 └── README.md
 ```
+
+---
+
+## Author
+
+**Nafees Ahmed Bhatti**
+
+GitHub: https://github.com/NafeesAhmedBhatti
